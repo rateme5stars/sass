@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// $color-primary: #f9ed69;
+// $color-secondary: #f08a5d;
+// $color-tertiary: #b83b5e;
+
+nav {
+    margin: 30px;
+    color: red
+}
+
+.navigation {
+    list-style: none;
+    
+    li {
+        display: inline-block;
+        margin-left: 50px;
+    }
+}

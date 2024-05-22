@@ -1,0 +1,181 @@
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        #7ed56fad, 
+        #28b485b1), 
+        url(../img/hero.jpg);
+
+    /* image will be scaled to be fit in the box */
+    background-size: cover; 
+    
+    /*When resize window, top always show*/
+    background-position: top;
+
+    /*- clip component with coordinate in order of clockwise coordinates are angles of new polygon
+      - got to website `cssclippathmaker` for easier*/
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+    position: relative;
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* 2 above lines make top-left conner at center of parent, to make it really center, 
+    we need to shift x and y to left and top direction 50% each dimension */
+    transform: translate(-50%, -50%);
+    text-align: center; /*make button center horizontally*/
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    /* backface-visibility: hidden; */
+    margin-bottom: 60px;
+
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+
+    /* 
+    animation-iteration-count: 2;
+    animation-delay: 1.5s;
+    animation-timing-function: ease-out; 
+    */
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-100px);
+
+    }
+
+    /* 60% {
+        transform: rotate(120deg)
+    } */
+
+    80% {
+        transform: translate(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 17px;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translate(100px);
+
+    }
+
+    80% {
+        transform: translate(-10px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;  /* remove underline */
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s; /*all tranformations duration is 0.2s*/
+    position: relative;
+}
+
+/* make button up when hover */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+/* make button down when click */
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    /* background-color: blue; */
+    color: #777;
+}
+
+/*create second button behind real button*/
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom;
+    animation-duration: 1s;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

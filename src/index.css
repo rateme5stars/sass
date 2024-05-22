@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*Now, w and h include padding and border*/
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7; /*bigger than 1.7 times than default*/
+  color: #777;
+  padding: 30px;
+}
